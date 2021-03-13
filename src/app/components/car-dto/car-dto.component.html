@@ -1,0 +1,23 @@
+<table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col table-dark">Arabalar Detay |</th>
+        <!-- <th scope="col">Araba Numarası</th> -->
+        <th scope="col">Marka</th>
+        <th scope="col">Renk</th>
+        <th scope="col">Günlük Satış Fiyatı</th>
+        <th scope="col">Açıklama</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr  *ngFor="let carsDto of carsDtos">
+        <th scope="row table-dark">*</th>
+        <!-- <td>{{carsDto.carId}}</td> -->
+        <td>{{carsDto.brandName}}</td>
+        <td>{{carsDto.colorName}}</td>
+        <td>{{carsDto.dailyPrice}}</td>
+        <td>{{carsDto.carDescription}}</td>
+      </tr>
+    </tbody>
+  </table>
+  
