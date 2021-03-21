@@ -9,16 +9,37 @@ import { ColorService } from 'src/app/services/colorService/color.service';
 })
 export class ColorComponent implements OnInit {
 
-  colors:Color[] =[];
-  constructor(private colorService:ColorService) { }
+  title: string = 'Renkler';
+   listAllColorCss: string = 'text-start list-group-item';
+   colors: Color[] = [];
+   currentColorId: number = 0;
 
-  ngOnInit(): void {
-    this.getColor();
-  }
+   constructor(private colorService: ColorService) {
+   }
 
-  getColor(){
-    this.colorService
-    .getColor()
-    .subscribe(response=>{this.colors=response.data})
-  }
+   ngOnInit(): void {
+      this.getColors();
+   }
+
+   getColors() {
+      this.colorService.getColors().subscribe((response) => {
+         this.colors = response.data;
+      });
+   }
+
+   setCurrentColor(colorId: number) {
+      this.currentColorId = colorId;
+   }
+
+   getCurrentColorClass(colorId: number): string {
+      if (this.currentColorId == colorId) {
+         return 'list-group-item list-group-item-action active';
+      }
+
+      return 'list-group-item list-group-item-action';
+   }
+
+   resetCurrentColor(){
+      this.currentColorId = 0
+   }
 }

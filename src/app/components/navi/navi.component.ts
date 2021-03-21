@@ -7,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NaviComponent implements OnInit {
 
-  constructor() { }
+  title:string = 'Rent A Car';
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

@@ -9,16 +9,37 @@ import { BrandService } from 'src/app/services/brandService/brand.service';
 })
 export class BrandComponent implements OnInit {
 
-  brands:Brand[] = [];
-  constructor(private brandService:BrandService) { }
+   title: string = 'Markalar';
+   listAllBrandCss: string = "text-start list-group-item";
+   brands: Brand[] = [];
+   currentBrandId: number = 0;
 
-  ngOnInit(): void {
-    this.getBrands();
-  }
+   constructor(private brandService: BrandService) {
+   }
 
-  getBrands() {
-    this.brandService
-    .getBrands()
-    .subscribe(response=>{this.brands = response.data;})
-  }
+   ngOnInit(): void {
+      this.getBrands();
+   }
+
+   getBrands() {
+      this.brandService.getBrands().subscribe((response) => {
+         this.brands = response.data;
+      });
+   }
+
+   setCurrentBrand(brandId: number) {
+      this.currentBrandId = brandId;
+   }
+
+   getCurrentBrandClass(brandId: number): string {
+      if (this.currentBrandId == brandId) {
+         return 'list-group-item list-group-item-action active';
+      }
+
+      return 'list-group-item list-group-item-action';
+   }
+
+   resetCurrentBrandId(){
+      this.currentBrandId = 0
+   }
 }

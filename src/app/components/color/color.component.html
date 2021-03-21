@@ -1,4 +1,23 @@
-<h4 class="fw-bold text-center">Renk</h4>
-<ul class="list-group" *ngFor="let color of colors">
-    <li class="list-group-item list-group-item-info">{{color.colorName}}</li>
-</ul>
+<div class="row">
+    <div class="col-lg-9">
+       <app-car></app-car>
+    </div>
+    <div class="col-lg-3">
+       <div class="list-group rounded-0 mt-4">
+          <div class="list-group-item fw-bold" style="background-color: #DDD">
+             <i class="bi-card-list"></i> {{ title }}
+          </div>
+ 
+          <button routerLink="/colors" (click)="resetCurrentColor()" class="{{ listAllColorCss }}"
+                  style="background-color: #EEE">
+            Tümünü Listele
+          </button>
+ 
+          <a *ngFor="let color of colors" routerLink="/colors/{{ color.colorId }}"
+                  (click)="setCurrentColor(color.colorId)" [class]="getCurrentColorClass(color.colorId)">
+             {{ color.colorName }}
+         </a>
+       </div>
+    </div>
+ </div>
+ 

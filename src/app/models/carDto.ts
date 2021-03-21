@@ -3,5 +3,6 @@ export interface CarDto{
     brandName:string;
     colorName:string;
     dailyPrice:number;
-    carDescription:string;
+    modelYear:number;
+    description:string;
 }

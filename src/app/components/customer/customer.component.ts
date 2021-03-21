@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Customer } from 'src/app/models/customer';
+import { CustomerDetail } from 'src/app/models/customerDto';
 import { CustomerService } from 'src/app/services/customerService/customer.service';
 
 @Component({
@@ -9,14 +9,18 @@ import { CustomerService } from 'src/app/services/customerService/customer.servi
 })
 export class CustomerComponent implements OnInit {
 
-  customers:Customer[] = [];
-  constructor(private customerService:CustomerService) { }
+  customers: CustomerDetail[] = [];
 
-  ngOnInit(): void {
-    this.getCustomer();
+  constructor(private customerService: CustomerService) {
   }
 
-  getCustomer(){
-    this.customerService.getCustomer().subscribe(response=> this.customers = response.data)
+  ngOnInit(): void {
+    this.getCustomers();
+  }
+
+  getCustomers() {
+    this.customerService.getCustomers().subscribe((response) => {
+      this.customers = response.data;
+    });
   }
 }
