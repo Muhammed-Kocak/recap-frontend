@@ -1,6 +1,7 @@
 export interface CustomerDetail {
-    companyName : string;
-    firstName : string;
-    lastName : string;
+    customerId: number;
+    companyName: string;
+    firstName: string;
+    lastName: string;
     email: string;
 }

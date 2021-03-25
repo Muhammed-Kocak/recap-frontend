@@ -32,9 +32,13 @@
             ],
             "styles": [
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/ngx-toastr/toastr.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "bootstrap/dist/js/bootstrap.min.js",
+              "jquery/dist/jquery.min.js"
+            ]
           },
           "configurations": {
             "production": {

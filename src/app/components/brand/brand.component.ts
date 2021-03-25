@@ -13,6 +13,7 @@ export class BrandComponent implements OnInit {
    listAllBrandCss: string = "text-start list-group-item";
    brands: Brand[] = [];
    currentBrandId: number = 0;
+   filterText="";
 
    constructor(private brandService: BrandService) {
    }
@@ -42,4 +43,8 @@ export class BrandComponent implements OnInit {
    resetCurrentBrandId(){
       this.currentBrandId = 0
    }
+   removeCurrentColor(){
+      this.filterText = "";
+      this.currentBrandId = 0;
+    }
 }

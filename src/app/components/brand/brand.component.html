@@ -2,10 +2,20 @@
    <div class="col-lg-9">
       <app-car></app-car>
    </div>
+   
+   
    <div class="col-lg-3">
+     
       <div class="list-group rounded-0 mt-4">
          <div class="list-group-item fw-bold" style="background-color: #DDD">
             <i class="bi-card-list"></i> {{ title }}
+            <div>
+               <input type="text" [(ngModel)]="filterText" class="form-control"
+               placeholder="Marka ara">
+               <div class="col">
+                  {{filterText}}
+               </div>
+            </div>
          </div>
 
          <button routerLink="/brands" (click)="resetCurrentBrandId()" class="{{ listAllBrandCss }}"
@@ -13,7 +23,7 @@
             Tümünü Listele
          </button>
 
-         <a *ngFor="let brand of brands" routerLink="/brands/{{ brand.brandId }}"
+         <a *ngFor="let brand of brands | filterBrand:filterText" routerLink="/brands/{{ brand.brandId }}"
                  (click)="setCurrentBrand(brand.brandId)" [class]="getCurrentBrandClass(brand.brandId)">
             {{ brand.brandName }}
          </a>

@@ -15,11 +15,11 @@ export class CustomerComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getCustomers();
+    this.getCustomerDetails();
   }
 
-  getCustomers() {
-    this.customerService.getCustomers().subscribe((response) => {
+  getCustomerDetails() {
+    this.customerService.getCustomerDetail().subscribe((response) => {
       this.customers = response.data;
     });
   }

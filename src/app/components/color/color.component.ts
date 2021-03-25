@@ -9,10 +9,11 @@ import { ColorService } from 'src/app/services/colorService/color.service';
 })
 export class ColorComponent implements OnInit {
 
-  title: string = 'Renkler';
+   title: string = 'Renkler';
    listAllColorCss: string = 'text-start list-group-item';
    colors: Color[] = [];
    currentColorId: number = 0;
+   filterText = '';
 
    constructor(private colorService: ColorService) {
    }
@@ -42,4 +43,8 @@ export class ColorComponent implements OnInit {
    resetCurrentColor(){
       this.currentColorId = 0
    }
+   removeCurrentColor(){
+      this.filterText = "";
+      this.currentColorId=0;
+    }
 }

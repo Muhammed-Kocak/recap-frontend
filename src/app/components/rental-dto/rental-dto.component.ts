@@ -18,6 +18,7 @@ export class RentalDtoComponent implements OnInit {
   }
 
   getRentalDto(){
-    this.rentalDtoService.getRentalDto().subscribe(response=> this.rentalDtos = response.data)
+    this.rentalDtoService.getRentalDto().subscribe(response=> 
+      this.rentalDtos = response.data)
   }
 }

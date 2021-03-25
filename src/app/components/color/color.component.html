@@ -2,10 +2,20 @@
     <div class="col-lg-9">
        <app-car></app-car>
     </div>
+    
+    
     <div class="col-lg-3">
+      
        <div class="list-group rounded-0 mt-4">
           <div class="list-group-item fw-bold" style="background-color: #DDD">
              <i class="bi-card-list"></i> {{ title }}
+             <div>
+               <input type="text" [(ngModel)]="filterText" class="form-control"
+               placeholder="Renk ara">
+               <div class="col">
+                  {{filterText}}
+               </div>
+             </div>
           </div>
  
           <button routerLink="/colors" (click)="resetCurrentColor()" class="{{ listAllColorCss }}"
@@ -13,7 +23,7 @@
             Tümünü Listele
           </button>
  
-          <a *ngFor="let color of colors" routerLink="/colors/{{ color.colorId }}"
+          <a aria-current="true" *ngFor="let color of colors | filterColor:filterText" routerLink="/colors/{{ color.colorId }}"
                   (click)="setCurrentColor(color.colorId)" [class]="getCurrentColorClass(color.colorId)">
              {{ color.colorName }}
          </a>

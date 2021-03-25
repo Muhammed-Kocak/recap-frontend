@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CarDetailAndImagesDto } from 'src/app/models/CarDetailAndImagesDto';
 import { CarDto } from 'src/app/models/carDto';
 import { CarImage } from 'src/app/models/carImage';
 import { CarDtoService } from 'src/app/services/carDtoService/car-dto.service';
@@ -14,6 +15,7 @@ export class CarDtoComponent implements OnInit {
  
   // @ts-ignore
   carDetail: CarDto;
+  carDetailAndImagesDto: CarDetailAndImagesDto;
   carImages: CarImage[] = [];
   imageBaseUrl = "https://localhost:44332/Images/";
 
@@ -25,18 +27,20 @@ export class CarDtoComponent implements OnInit {
 
   ngOnInit(): void {
      this.activatedRoute.params.subscribe((params) => {
-        if (params['carId']) {
-           this.getPhotosByCarId(params['carId']);
-           this.getCarById(params['carId']);
+        if (params["carId"]) {
+           this.getPhotosByCarId(params["carId"]);
+           this.getCarDetailAndImagesDto(params["carId"]);
+           this.getCarDetailsById(params["carId"]);
         }
      });
-     console.log(this.carDetail.brandName+this.carDetail.colorName)
   }
 
-  getCarById(id: number) {
-     this.carDtoService.getCarDetails(id).subscribe((response) => {
-        this.carDetail = response.data;
-     });
+  getCarDetailsById(carId:number){
+     this.carDtoService.getCarDetailsById(carId).subscribe((response)=>{
+      this.carDetail =response.data 
+     }
+     );
+     
   }
 
   getPhotosByCarId(carId: number) {
@@ -44,4 +48,18 @@ export class CarDtoComponent implements OnInit {
         this.carImages = response.data;
      });
   }
+
+  getCarDetailAndImagesDto(carId:number){
+   this.carDtoService.getCarDetailAndImagesDto(carId).subscribe(response => {
+     this.carDetailAndImagesDto = response.data;
+   })
+ }
+
+ getSliderClassName(index:Number){
+   if(index == 0){
+     return "carousel-item active";
+   } else {
+     return "carousel-item";
+   }
+ }
 }

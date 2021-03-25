@@ -9,8 +9,16 @@ import { CarService } from 'src/app/services/carService/car.service';
   styleUrls: ['./car.component.css']
 })
 export class CarComponent implements OnInit {
-  carDetail: CarDto | undefined;
+   carDetail: CarDto;
    carDetails: CarDto[] = [];
+
+   currentBrandId: number = 0;
+   currentColorId: number = 0;
+   currentCarId: number = 0;
+   filterBrand="";
+   filterColor="";
+   filterCar="";
+
 
    constructor(private carService: CarService, private activatedRoute: ActivatedRoute) {
    }
@@ -23,7 +31,6 @@ export class CarComponent implements OnInit {
          if (params['colorId']) {
             return this.getCarsByColorId(params['colorId']);
          }
-
          return this.getCars();
       });
    }
@@ -45,4 +52,26 @@ export class CarComponent implements OnInit {
          this.carDetails = response.data;
       });
    }
+   setCurrentCar(carId: number) {
+      this.currentCarId = carId;
+   }
+   getCurrentCarClass(carId: number): string {
+      if (this.currentCarId == carId) {
+         return 'list-group-item list-group-item-action active';
+      }
+      return 'list-group-item list-group-item-action';
+   }
+   resetCurrentBrandId(){
+      this.currentBrandId= 0;
+      this.currentColorId= 0;
+      this.currentCarId = 0;
+   }
+   removeCurrentColor(){
+      this.currentBrandId= 0;
+      this.currentColorId= 0;
+      this.currentCarId = 0;
+      this.filterBrand="";
+      this.filterColor="";
+      this.filterCar="";
+    }
 }

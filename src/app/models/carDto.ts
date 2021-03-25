@@ -5,4 +5,5 @@ export interface CarDto{
     dailyPrice:number;
     modelYear:number;
     description:string;
+    status:boolean;
 }

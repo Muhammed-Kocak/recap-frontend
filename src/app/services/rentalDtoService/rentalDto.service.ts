@@ -9,7 +9,7 @@ import { RentalDto } from 'src/app/models/rentalDto';
 })
 export class RentalDtoService {
 
-  apiUrl:string="https://localhost:44332/api/rentals/getrentaldetails";
+  apiUrl="https://localhost:44332/api/rentals/getrentaldetails";
 
   constructor(private httpClient:HttpClient) { }
 
