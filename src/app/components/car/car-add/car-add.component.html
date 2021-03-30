@@ -1,0 +1,54 @@
+<br>
+<div class="content">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="title">Araba Ekle</h5>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="carAddForm">
+                    <div class="mb-3">
+                        <label for="brandId">Marka Seçiniz</label>
+                        <select id="brandId" class="form-select" aria-label="Default select example"
+                            formControlName="brandId">
+                            <option [ngValue]="brand.brandId" *ngFor="let brand of brands| slice:1; let i = index;">
+                                {{brand.brandName |uppercase}} </option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="colorId">Renk Seçiniz</label>
+                        <select id="colorId" class="form-select" aria-label="Default select example"
+                            formControlName="colorId">
+                            <option [ngValue]="color.colorId" *ngFor="let color of colors| slice:1; let i = index; ">
+                                {{color.colorName |uppercase}}  </option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="modelYear">Model Girin</label>
+                        <div class="form-group">
+                            <input type="number" placeholder="2021" id="modelYear" formControlName="modelYear"
+                                class="form-control" />
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="dailyPrice">Fiyat Girin</label>
+                        <div class="form-group">
+                            <input type="number" id="dailyPrice" formControlName="dailyPrice" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description">Açıklama Girin</label>
+                        <div class="form-group">
+                            <input type="text" id="description" formControlName="description" class="form-control" />
+                        </div>
+                    </div>
+                </form>
+        </div>
+        <div class="card-footer">
+          <div class="d-grid gap-2">
+            <button class="btn btn-primary" (click)="add()">Ekle</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

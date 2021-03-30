@@ -1,8 +1,7 @@
-<table class="table table-dark" routerLink="rental/details">
+<table class="table" routerLink="rental/details">
     <thead>
       <tr>
         <th scope="col table-dark">Araç Kiralama</th>
-        <th scope="col">RentalId</th>
         <th scope="col">Marka</th>
         <th scope="col">İsim</th>
         <th scope="col">Soy İsim</th>
@@ -12,8 +11,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let rentalDto of rentalDtos">
-        <th scope="row table-dark"></th>
-        <td>{{rentalDto.rentalDtoId}}</td>
+        <th scope="row"></th>
         <td>{{rentalDto.brandName}}</td>
         <td>{{rentalDto.firstName}}</td>
         <td>{{rentalDto.lastName}}</td>

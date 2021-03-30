@@ -38,9 +38,7 @@ export class CarDtoComponent implements OnInit {
   getCarDetailsById(carId:number){
      this.carDtoService.getCarDetailsById(carId).subscribe((response)=>{
       this.carDetail =response.data 
-     }
-     );
-     
+     });
   }
 
   getPhotosByCarId(carId: number) {

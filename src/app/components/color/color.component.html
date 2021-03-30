@@ -1,6 +1,7 @@
 <div class="row">
     <div class="col-lg-9">
        <app-car></app-car>
+       
     </div>
     
     
@@ -23,11 +24,13 @@
             Tümünü Listele
           </button>
  
-          <a aria-current="true" *ngFor="let color of colors | filterColor:filterText" routerLink="/colors/{{ color.colorId }}"
+          <a  aria-current="true" *ngFor="let color of colors | filterColor:filterText" routerLink="/colors/{{ color.colorId }}"
                   (click)="setCurrentColor(color.colorId)" [class]="getCurrentColorClass(color.colorId)">
-             {{ color.colorName }}
+             {{ color.colorName |uppercase}}
          </a>
        </div>
+       <app-color-add></app-color-add>
+       <br>
+       <app-color-update></app-color-update>
     </div>
  </div>
- 

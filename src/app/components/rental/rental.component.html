@@ -1,6 +1,6 @@
 <!-- Button trigger modal -->
 <div class="d-grid gap-2">
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="getCustomerDetail()">
     Aracı Kirala
   </button>
 </div>
@@ -26,7 +26,7 @@
           <label for="example-date-input" class="col-4 col-form-label">Müşteri</label>
           <div class="col-8">
             <select class="form-select" [(ngModel)]="customerId">
-              <option [value]="customerDto?.customerId" *ngFor="let customerDto of customerDetails">
+              <option [value]="customerDto?.customerId" *ngFor="let customerDto of customerDetails" >
                 {{ customerDto?.firstName }} {{ customerDto?.lastName }} |
                 {{ customerDto?.companyName }}
               </option>

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import {FormsModule,ReactiveFormsModule} from "@angular/forms";
 
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -23,6 +23,12 @@ import { FilterCarPipe } from './pipes/filter-car.pipe';
 import { CarFilterComponent } from './components/car-filter/car-filter.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { ToastrModule } from 'ngx-toastr';
+import { BrandAddComponent } from './components/brand/brand-add/brand-add.component';
+import { ColorAddComponent } from './components/color/color-add/color-add.component';
+import { CarAddComponent } from './components/car/car-add/car-add.component';
+import { CarUpdateComponent } from './components/car/car-update/car-update.component';
+import { BrandUpdateComponent } from './components/brand/brand-update/brand-update.component';
+import { ColorUpdateComponent } from './components/color/color-update/color-update.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +46,12 @@ import { ToastrModule } from 'ngx-toastr';
     FilterCarPipe,
     CarFilterComponent,
     PaymentComponent,
+    BrandAddComponent,
+    ColorAddComponent,
+    CarAddComponent,
+    CarUpdateComponent,
+    BrandUpdateComponent,
+    ColorUpdateComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,6 +59,7 @@ import { ToastrModule } from 'ngx-toastr';
     HttpClientModule,
     CommonModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     ToastrModule.forRoot(), // ToastrModule added
     FormsModule
   ],

@@ -26,7 +26,6 @@ export class RentalComponent implements OnInit {
 
 
    ngOnInit(): void {
-     this.getCustomerDetail();
    }
  
    getCustomerDetail(){

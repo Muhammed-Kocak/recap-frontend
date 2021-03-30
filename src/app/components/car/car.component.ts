@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { CarDto } from 'src/app/models/carDto';
 import { CarService } from 'src/app/services/carService/car.service';
 
@@ -9,6 +10,7 @@ import { CarService } from 'src/app/services/carService/car.service';
   styleUrls: ['./car.component.css']
 })
 export class CarComponent implements OnInit {
+
    carDetail: CarDto;
    carDetails: CarDto[] = [];
 
