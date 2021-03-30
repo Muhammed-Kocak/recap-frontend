@@ -23,10 +23,13 @@
             Tümünü Listele
          </button>
 
-         <a *ngFor="let brand of brands | filterBrand:filterText" routerLink="/brands/{{ brand.brandId }}"
+         <a *ngFor="let brand of brands | filterBrand:filterText " routerLink="/brands/{{ brand.brandId }}"
                  (click)="setCurrentBrand(brand.brandId)" [class]="getCurrentBrandClass(brand.brandId)">
-            {{ brand.brandName }}
+            {{ brand.brandName | uppercase }}
          </a>
       </div>
+      <app-brand-add></app-brand-add>
+      <br>
+      <app-brand-update></app-brand-update>
    </div>
 </div>
