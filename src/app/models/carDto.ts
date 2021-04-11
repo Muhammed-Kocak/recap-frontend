@@ -6,4 +6,5 @@ export interface CarDto{
     modelYear:number;
     description:string;
     status:boolean;
+    minFindeksScore:number;
 }

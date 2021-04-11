@@ -1,0 +1,40 @@
+<body style="background-image: url(https://www.pxwall.com/wp-content/uploads/2019/03/Tesla-Review.jpg);padding: 140px;background-size: 100%;" class="text-center">
+    <main class="form-signin">
+        <form [formGroup]="registerForm">
+            <!-- İmg -->
+            <h1 class="h3 mb-3 fw-normal">Kayıt ol</h1>
+
+            <div class="form-floating">
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
+                    formControlName="email">
+                <label for="floatingInput">E-posta</label>
+            </div>
+            <div class="form-floating">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
+                    formControlName="password">
+                <label for="floatingPassword">Şifre</label>
+            </div>
+            <div class="form-floating">
+                <input type="text" class="form-control" id="floatingFirstName" placeholder="İsim"
+                    formControlName="firstName">
+                <label for="floatingFirstName">İsim</label>
+            </div>
+            <div class="form-floating">
+                <input type="text" class="form-control" id="floatingLastName" placeholder="Soy isim"
+                    formControlName="lastName">
+                <label for="floatingLastName">Soy isim</label>
+            </div>
+
+            <div class="checkbox mb-3">
+                <label>
+                    <input type="checkbox" value="remember-me"> Beni hatırla
+                </label>
+            </div>
+            <button class="w-100 btn btn-lg btn-primary" (click)="register()">Kayıt ol</button>
+            <p class="mt-5 mb-3 text-muted">&copy; 2021–2023</p>
+        </form>
+        <label for="floatingPassword">Zaten hesabın var mı?</label>
+        <button class="w-100 btn btn-lg btn-primary" routerLink="/login">Giriş yap</button>
+    </main>
+</body>
+

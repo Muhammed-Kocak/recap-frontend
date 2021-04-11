@@ -1,27 +1,51 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom shadow-sm">
+<nav class="p-3 bg-dark text-white" *ngIf="whichPageControl()">
   <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+      <a class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none" routerLink="home-page"><i
+          class="bi-bullseye me-1" style="color: aqua;">{{ title }}</i> </a>
 
-     <a class="navbar-brand" routerLink="cars"><i class="bi-bullseye me-1"></i> {{ title }}</a>
 
-     <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarContent">
-        <span class="navbar-toggler-icon"></span>
-     </button>
 
-     <div class="collapse navbar-collapse" id="navbarContent">
-        <div class="navbar-nav mb-2 mb-lg-0">
-           <a class="nav-item nav-link" routerLink="cars" routerLinkActive="active">Arabalar</a>
-           <a class="nav-item nav-link" routerLink="rental/details" routerLinkActive="active">Kiralamalar</a>
-           <a class="nav-item nav-link" routerLink="customers" routerLinkActive="active">Müşteriler</a>
-           <a class="nav-item nav-link" routerLink="brands" routerLinkActive="active">Markalar</a>
-           <a class="nav-item nav-link" routerLink="colors" routerLinkActive="active">Renkler</a>
+      <div class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <a class="nav-link px-2 text-decoration-none" routerLink="cars" routerLinkActive="active"><b>Arabalar</b></a>
+        <a *ngIf="manager" class="nav-link px-2 text-decoration-none" routerLink="rental/details"
+          routerLinkActive="active"><b>Kiralamalar</b></a>
+        <a *ngIf="manager" class="nav-link px-2 text-decoration-none" routerLink="customers"
+          routerLinkActive="active"><b>Müşteriler</b></a>
+      </div>
+
+      <div *ngIf="!(userDetail$ | async)" class="d-flex justify-content-center order-0 order-lg-1">
+        <a class="btn btn-info" routerLink="register">Kayıt ol</a>&nbsp; &nbsp;
+        <a class="btn btn-info" routerLink="login">Giriş yap</a>
+      </div>
+
+      <div *ngIf="userDetail$ | async" class="dropdown">
+        <div ngbDropdown class="d-inline-block">
+          <button class="btn btn-secondary dropdown-toggle" id="dropdownBasic1" ngbDropdownToggle>
+            <i class="fas fa-user">
+              {{ (userDetail$ | async)?.firstName }}
+              {{ (userDetail$ | async)?.lastName }}
+            </i>
+          </button>
+          <div class="dropdown-menu dropdown-menu-right dropdown-default" ngbDropdownMenu
+            aria-labelledby="dropdownBasic1">
+            <button routerLink="account" ngbDropdownItem>Profil Ayarları</button>
+            <div *ngIf="manager" ngbDropdown>
+              <a id="navlink-btn" class="btn dropdown-toggle"
+                id="dropdownBasic2" ngbDropdownToggle>
+                <b>Admin</b>
+              </a>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+                <a class="btn" routerLink="/admin-dashboard/" routerLinkActive="active"><b>Admin Dashboard</b></a>
+                <a class="btn" routerLink="/admin-dashboard/brands/add" routerLinkActive="active"><b>Brand Add</b></a>
+                <a class="btn" routerLink="/admin-dashboard/colors/add" routerLinkActive="active"><b>Color Add</b></a>
+                <a class="btn" routerLink="/admin-dashboard/cars/add" routerLinkActive="active"><b>Car Add</b></a>
+              </div>
+            </div>
+            <button routerLink="logout" ngbDropdownItem>Çıkış yap</button>
+          </div>
         </div>
-
-        <div class="navbar-nav ms-auto mb-2 mb-lg-0">
-           <a class="btn btn-primary rounded-pill px-4" href="javascript:void(0)">
-              <i class="bi-person-fill me-1"></i> Giriş Yap
-           </a>
-        </div>
-     </div>
-
+      </div>
+    </div>
   </div>
 </nav>

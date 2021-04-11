@@ -13,7 +13,7 @@ import { BrandService } from 'src/app/services/brandService/brand.service';
 export class BrandAddComponent implements OnInit {
 
   brandAddForm: FormGroup;
-  constructor(private formBuilder: FormBuilder,private toastrService: ToastrService,private brandService:BrandService) { }
+  constructor(private formBuilder: FormBuilder,private toastrService: ToastrService,private router:Router,private brandService:BrandService) { }
 
   ngOnInit(): void {
     this.createBrandAddForm();
@@ -31,18 +31,21 @@ export class BrandAddComponent implements OnInit {
     if (this.brandAddForm.valid) {
       this.brandService.add(brandModel).subscribe(
         (response) => {
-          this.toastrService.success(response.messages, 'Başarılı');
-          window.location.reload();
+          this.toastrService.success(response.message, 'Başarılı');
+          this.toastrService.success('Liste sayfasına aktarılıyorsunuz..');
+          setTimeout(() => {
+            this.router.navigate(["admin-dashboard/brands/getlist"])
+          }, 3000);
         },
         (responseError) => {
           console.log(responseError)
           for (
             let i = 0;
-            i < responseError.error.Errors.length;
+            i < responseError.error.length;
             i++
           ) {
             this.toastrService.error(
-              responseError.error.Errors[i].ErrorMessage,
+              responseError.error[i].message,
               'Doğrulama Hatası'
             );
           }

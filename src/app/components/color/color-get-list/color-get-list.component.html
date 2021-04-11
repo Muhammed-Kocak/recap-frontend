@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-lg-12">
+        <table class="table  table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Renkler</th>
+                    <th scope="col">Color Id</th>
+                    <th scope="col">Color Name</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let color of colors">
+                <tr>
+                    <th scope="row"></th>
+                    <td>{{ color.colorId }}</td>
+                    <td>{{ color.colorName | uppercase }}</td>&nbsp;&nbsp;
+                    <button routerLink="/admin-dashboard/colors/{{ color.colorId }}" type="button" class="btn btn-warning">Düzenle Veya Sil</button>
+                </tr>
+                <br>
+            </tbody>
+        </table>
+    </div>
+</div>

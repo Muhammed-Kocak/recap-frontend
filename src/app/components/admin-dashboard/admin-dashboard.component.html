@@ -1,0 +1,130 @@
+<body>
+    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" routerLink="./">{{title}}</a>
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link" routerLink="logout">Sign-Out</a>
+            </li>
+        </ul>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                <div class="position-sticky pt-3">
+                    <div class="nav flex-column accordion" id="accordionExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseZero" aria-expanded="true" aria-controls="collapseZero">
+                                    Dashboard
+                                </button>
+                            </h2>
+                            <div id="collapseZero" class="accordion-collapse collapse" aria-labelledby="headingZero"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <strong>Burada Henüz Bir Şey Yok</strong>
+                                    <h6
+                                        class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                                        <span>Saved reports</span>
+                                        <a class="link-secondary" href="#" aria-label="Add a new report">
+                                            <span data-feather="plus-circle"></span>
+                                        </a>
+                                    </h6>
+                                    <strong>CRUD Log</strong><br>
+                                    <strong>Account Log</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                    Brand
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <button class="btn" routerLink="brands/getlist">Brand Get List</button><br>
+                                    <button class="btn" routerLink="brands/add">Brand Add</button><br>
+                                    <button class="btn" disabled routerLink="brands/update/brandId">Brand Update / Linked to "Get List"</button><br>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Color
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <button class="btn" routerLink="colors/getlist">Color Get List</button><br>
+                                    <button class="btn" routerLink="colors/add">Color Add</button><br>
+                                    <button class="btn" disabled routerLink="colors/update/:colorId">Color Update / Linked to "Get List"</button><br>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Car
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <button class="btn" routerLink="cars/getlist">Car Get List</button><br>
+                                    <button class="btn" routerLink="cars/add">Car Add</button><br>
+                                    <button class="btn" disabled routerLink="cars/update">Car Update / Linked to "Get List</button><br>
+                                    <button class="btn" routerLink="cars/image/getlist">Car Image Get List</button><br>
+                                    <button class="btn" routerLink="cars/image/add">Car Image Add</button><br>
+                                    <button class="btn" disabled routerLink="cars/image/update">Car Image Update / Linked to "Car Image Get List</button><br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div
+                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Dashboard</h1>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <div class="btn-group me-2">
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <router-outlet></router-outlet>
+                </div>
+            </main>
+        </div>
+    </div>
+
+
+    <script src="/docs/5.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+        integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
+        integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
+        crossorigin="anonymous"></script>
+    <script src="dashboard.js"></script>
+</body>

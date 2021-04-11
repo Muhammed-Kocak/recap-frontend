@@ -6,6 +6,8 @@ import { Customer } from 'src/app/models/customer';
 import { CustomerDetail } from 'src/app/models/customerDto';
 import { Rental } from 'src/app/models/rental';
 import { CustomerService } from 'src/app/services/customerService/customer.service';
+import { FindeksService } from 'src/app/services/findeksService/findeks.service';
+import { LocalStorageService } from 'src/app/services/localStorageService/local-storage.service';
 import { RentalService } from 'src/app/services/rentalService/rental.service';
 
 @Component({
@@ -15,24 +17,33 @@ import { RentalService } from 'src/app/services/rentalService/rental.service';
 })
 export class RentalComponent implements OnInit {
 
-  constructor(private activatedRoute:ActivatedRoute, private router:Router,private customerService:CustomerService,private rentalService:RentalService,private toastrService:ToastrService) { }
-   customerDetails:CustomerDetail[];
-   customers:Customer[];
-   customerId:number;
-   rentDate:Date;
-   returnDate:Date;
-   rentalId:number;
-   @Input() car:CarDto;
+  findeksScore:any;
+  customerDetails:CustomerDetail[];
+  customers:Customer[];
+  customerId:number;
+  rentDate:Date;
+  returnDate?:Date;
+  rentalId:number;
+  @Input() car:CarDto;
 
+  constructor(
+     private activatedRoute:ActivatedRoute,
+     private router:Router,
+     private customerService:CustomerService,
+     private rentalService:RentalService,
+     private toastrService:ToastrService,
+     private localStorageService:LocalStorageService,
+     private findeksService:FindeksService
+     ) { }
 
+   
    ngOnInit(): void {
    }
  
    getCustomerDetail(){
-     this.customerService.getCustomerDetail().subscribe(response => {
-       this.customerDetails = response.data;
-       console.log(this.customerDetails)
-     })
+      this.customerService.getCustomerDetail().subscribe(response => {
+        this.customerDetails = response.data;
+        console.log(this.customerDetails)})
    }
    
    getRentMinDate(){
@@ -55,12 +66,9 @@ export class RentalComponent implements OnInit {
      }
      console.log(MyRental);
 
+     this.rentalService.rentalCheckout = MyRental;
+
      this.toastrService.info("Ödeme sayfasına yönlendiriliyorsunuz...", "Ödeme İşlemleri");
-     this.router.navigate(['/payment/', JSON.stringify(MyRental)]);
-     
-     this.rentalService.rentalCar(MyRental).subscribe(response => {
-       this.toastrService.success(response.messages.toString(), "Harika...");
-     })
-     
+     setTimeout(() => { this.router.navigate(['/payment/', JSON.stringify(MyRental)]);  }, 2000);
    }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Brand } from 'src/app/models/brand';
 import { BrandService } from 'src/app/services/brandService/brand.service';
@@ -21,7 +21,8 @@ export class BrandUpdateComponent implements OnInit {
     private brandService: BrandService,
     private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
+    private router:Router
   ) {}
 
   ngOnInit(): void {
@@ -60,9 +61,11 @@ export class BrandUpdateComponent implements OnInit {
     if (this.brandUpdateForm.valid) {
       let brandModel = Object.assign({}, this.brandUpdateForm.value);
       this.brandService.update(brandModel).subscribe((response) => {
-        this.toastrService.success(response.messages, 'Başarılı');
+        console.log(response.message)
+        this.toastrService.success(response.message, 'Başarılı!');
+        this.toastrService.success('Markalar Sayfasına Aktarılıyorsunuz!');
         setTimeout(() => {
-          window.location.reload();
+          this.router.navigate(["admin-dashboard/brands/getlist"])
         }, 3000);
       },
       (responseError) => {
@@ -74,4 +77,15 @@ export class BrandUpdateComponent implements OnInit {
       });
     }
   }
-}
+
+  delete() {
+    let brandModel = Object.assign({}, this.brandUpdateForm.value);
+      this.brandService.delete(brandModel).subscribe((response) => {
+        this.toastrService.success(response.message);
+        this.toastrService.success('Markalar Sayfasına Aktarılıyorsunuz!');
+        setTimeout(() => {
+          this.router.navigate(["admin-dashboard/brands/getlist"])
+        }, 2000);
+      });
+    }
+  }

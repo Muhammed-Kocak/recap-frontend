@@ -14,6 +14,7 @@ import { CarImageService } from 'src/app/services/carImageService/car-image.serv
 export class CarDtoComponent implements OnInit {
  
   // @ts-ignore
+  isCollapsed = false;
   carDetail: CarDto;
   carDetailAndImagesDto: CarDetailAndImagesDto;
   carImages: CarImage[] = [];
@@ -51,13 +52,5 @@ export class CarDtoComponent implements OnInit {
    this.carDtoService.getCarDetailAndImagesDto(carId).subscribe(response => {
      this.carDetailAndImagesDto = response.data;
    })
- }
-
- getSliderClassName(index:Number){
-   if(index == 0){
-     return "carousel-item active";
-   } else {
-     return "carousel-item";
-   }
  }
 }

@@ -46,10 +46,14 @@
                 </form>
             </div>
             <div class="card-footer text-center">
-                <button class="btn btn-fill btn-primary" (click)="update()" >Güncelle</button>
-                <button class="btn btn-primary rounded-0 fw-bold " routerLink="/cars">
+                <button class="btn btn-fill btn-warning" (click)="update()" >Güncelle</button>&nbsp;&nbsp;
+                <button class="btn btn-fill btn-danger" (click)="delete()" >Sil</button>&nbsp;&nbsp;
+                <button class="btn btn-primary rounded-0 fw-bold " routerLink="/admin-dashboard/cars/getlist">
                     <i class="bi-list me-1 "></i> Araba Listesine Geri Dön
                 </button>
+            </div>
+            <div>
+                <app-car-image-add></app-car-image-add>
             </div>
         </div>
     </div>

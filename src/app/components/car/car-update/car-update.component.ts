@@ -17,10 +17,10 @@ import { ColorService } from 'src/app/services/colorService/color.service';
   styleUrls: ['./car-update.component.css']
 })
 export class CarUpdateComponent implements OnInit {
+
   carUpdateForm: FormGroup;
   selectedCar: Car;
   selectedCarDto: CarDto;
-  //updateCar : Car;
 
   brands: Brand[] = [];
   colors: Color[] = [];
@@ -95,7 +95,7 @@ export class CarUpdateComponent implements OnInit {
       let updateCarModel=Object.assign({},this.carUpdateForm.value);
       this.carService.carUpdate(updateCarModel).subscribe(
         (response) => {
-          this.toastrService.success(response.messages,"Başarılı");
+          this.toastrService.success(response.message,"Başarılı");
           setTimeout(() => {
             window.location.reload();
           }, 3000);
@@ -110,5 +110,16 @@ export class CarUpdateComponent implements OnInit {
       );
     }
   }
+  delete() {
+    let carModel = Object.assign({}, this.carUpdateForm.value);
+      this.carService.carDelete(carModel).subscribe((response) => {
+        this.toastrService.success(response.message);
+        this.toastrService.success('Arabalar Sayfasına Aktarılıyorsunuz!');
+        setTimeout(() => {
+          this.router.navigate(["admin-dashboard/cars/getlist"])
+        }, 2000);
+      });
+    }
 }
+
 

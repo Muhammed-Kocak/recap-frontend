@@ -1,0 +1,171 @@
+<div class="container">
+    <h1 class="fw-bold">Profil</h1>
+    <app-loading-spinner *ngIf="!accountForm"></app-loading-spinner>
+    <form *ngIf="accountForm" [formGroup]="accountForm">
+      <h2 class="fw-light">Bilgi</h2>
+      <div class="row">
+        <div class="col-sm">
+          <div class="mb-3">
+            <label for="first-name-input" class="form-label">Adınız</label>
+            <div class="input-group has-validation">
+              <input
+                formControlName="firstName"
+                type="text"
+                class="form-control"
+                [ngClass]="{
+                  'is-invalid':
+                    accountForm.controls['firstName'].errors &&
+                    (accountForm.controls['firstName'].touched ||
+                      accountForm.controls['firstName'].dirty),
+                  'is-valid':
+                    !accountForm.controls['firstName'].errors &&
+                    (accountForm.controls['firstName'].touched ||
+                      accountForm.controls['firstName'].dirty)
+                }"
+                id="first-name-input"
+                placeholder="Ahmet"
+              />
+              <div class="invalid-feedback">Lütfen isminizi giriniz.</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="mb-3">
+            <label for="last-name-input" class="form-label">Soyadınız</label>
+            <div class="input-group has-validation">
+              <input
+                formControlName="lastName"
+                type="text"
+                class="form-control"
+                [ngClass]="{
+                  'is-invalid':
+                    accountForm.controls['lastName'].errors &&
+                    (accountForm.controls['lastName'].touched ||
+                      accountForm.controls['lastName'].dirty),
+                  'is-valid':
+                    !accountForm.controls['lastName'].errors &&
+                    (accountForm.controls['lastName'].touched ||
+                      accountForm.controls['lastName'].dirty)
+                }"
+                id="last-name-input"
+                placeholder="Çetinkaya"
+              />
+              <div class="invalid-feedback">Lütfen soyadınız giriniz.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="mb-3">
+        <label for="company-name-input" class="form-label">Şirket adı</label>
+        <div class="input-group has-validation">
+          <input
+            formControlName="companyName"
+            type="text"
+            id="company-name-input"
+            class="form-control"
+            [ngClass]="{
+              'is-invalid':
+                accountForm.controls['companyName'].errors &&
+                (accountForm.controls['companyName'].touched ||
+                  accountForm.controls['companyName'].dirty),
+              'is-valid':
+                !accountForm.controls['companyName'].errors &&
+                (accountForm.controls['companyName'].touched ||
+                  accountForm.controls['companyName'].dirty)
+            }"
+            placeholder="{{ (userDetail$ | async)?.firstName }} {{
+              (userDetail$ | async)?.lastName
+            }}"
+          />
+          <div class="invalid-feedback">Lütfen soyadınızı giriniz.</div>
+        </div>
+      </div>
+  
+      <div class="mb-3">
+        <label for="email-input" class="form-label">Email adresi</label>
+        <input
+          type="email"
+          class="form-control text-secondary"
+          id="email-input"
+          placeholder="name@example.com"
+          [value]="(userDetail$ | async)?.email"
+          [attr.disabled]="true"
+        />
+      </div>
+  
+      <h2 class="fw-light">Findeks</h2>
+      <div class="row">
+        <div class="col">
+          <div class="mb-3">
+            <label for="national-identity-input" class="form-label">
+              TC Kimlik Numarası (Optional)
+            </label>
+            <div class="input-group has-validation">
+              <input
+                id="national-identity-input"
+                formControlName="nationalIdentity"
+                type="text"
+                class="form-control"
+                [ngClass]="{
+                  'is-invalid':
+                    accountForm.controls['nationalIdentity'].errors &&
+                    (accountForm.controls['nationalIdentity'].touched ||
+                      accountForm.controls['nationalIdentity'].dirty),
+                  'is-valid':
+                    !accountForm.controls['nationalIdentity'].errors &&
+                    (accountForm.controls['nationalIdentity'].touched ||
+                      accountForm.controls['nationalIdentity'].dirty)
+                }"
+                placeholder="Enter your national identity"
+              />
+              <div class="invalid-feedback">
+                Lütfen Tc kimlik numaranızı girin.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="mb-3">
+            <label for="findeks-score-input" class="form-label">
+              Findeks Skor
+            </label>
+            <input
+              id="findeks-score-input"
+              [attr.disabled]="true"
+              type="number"
+              class="form-control"
+              [value]="findeks ? findeks.score : 0"
+            />
+          </div>
+        </div>
+      </div>
+  
+      <h2 class="fw-light">Güvenlik</h2>
+      <div class="row">
+        <div class="col">
+          <div class="mb-3">
+            <app-password-input
+              formControlName="currentPassword"
+              [errors]="accountForm.controls['currentPassword'].errors"
+              [touched]="true"
+              [dirty]="accountForm.controls['currentPassword'].dirty"
+            ></app-password-input>
+          </div>
+        </div>
+        <div class="col">
+          <div class="mb-3">
+            <app-password-input
+              formControlName="newPassword"
+              label="Enter new password (Optional)"
+            ></app-password-input>
+          </div>
+        </div>
+      </div>
+      <button (click)="updateAccount()" class="btn btn-primary">
+        Profili Güncelle
+      </button>
+    </form>
+    <br><br>
+  </div>
+  

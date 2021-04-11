@@ -27,6 +27,12 @@ export class BrandService {
       brand
     );
   }
+  delete(brand: Brand): Observable<ResponseModel> {
+    return this.httpClient.post<ResponseModel>(
+      this.apiUrl + '/delete',
+      brand
+    );
+  }
   getBrandById(brandId: number): Observable<ListResponseModel<Brand>> {
     let newPath = this.apiUrl + '/getbyid?id=' + brandId;
     return this.httpClient.get<ListResponseModel<Brand>>(newPath);

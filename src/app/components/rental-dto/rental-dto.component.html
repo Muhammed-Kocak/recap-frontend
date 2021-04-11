@@ -1,7 +1,9 @@
-<table class="table" routerLink="rental/details">
+<br>
+<div class="container" style="padding: 175px;">
+  <table class="table table-dark table-striped" routerLink="rental/details">
     <thead>
-      <tr>
-        <th scope="col table-dark">Araç Kiralama</th>
+      <tr class="table-primary">
+        <th scope="col" style="text-align: center;">Araç Kiralama</th>
         <th scope="col">Marka</th>
         <th scope="col">İsim</th>
         <th scope="col">Soy İsim</th>
@@ -12,12 +14,12 @@
     <tbody>
       <tr *ngFor="let rentalDto of rentalDtos">
         <th scope="row"></th>
-        <td>{{rentalDto.brandName}}</td>
-        <td>{{rentalDto.firstName}}</td>
-        <td>{{rentalDto.lastName}}</td>
-        <td>{{rentalDto.rentDate}}</td>
-        <td>{{rentalDto.returnDate}} </td>
+        <td class="table-dark">{{rentalDto.brandName}}</td>
+        <td class="table-dark">{{rentalDto.firstName}}</td>
+        <td class="table-dark">{{rentalDto.lastName}}</td>
+        <td class="table-dark">{{rentalDto.rentDate}}</td>
+        <td class="table-dark">{{rentalDto.returnDate}} </td>
       </tr>
     </tbody>
   </table>
-  
+</div>

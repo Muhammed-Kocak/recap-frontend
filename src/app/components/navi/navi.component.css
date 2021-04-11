@@ -1,0 +1,15 @@
+.form-white.input-group>.form-control:focus {
+    border-color: #fff;
+    box-shadow: inset 0 0 0 1px #fff;
+  }
+  
+  .navbar-dark .navbar-nav .nav-link {
+    color: #fff;
+  }
+  
+  .navbar-dark .navbar-nav .nav-link:hover,
+  .navbar-dark .navbar-nav .nav-link:focus #navlink-btn{
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  

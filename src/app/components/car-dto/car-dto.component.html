@@ -1,58 +1,39 @@
-<div class="card">
-   <div class="card-header text-center">
-      <strong>
-         {{carDetail?.brandName}} - {{carDetail?.modelYear}}
-      </strong>
-  </div>
-  <div class="card-body"> 
-      <div id="indicators" class="carousel slide" data-bs-ride="carousel">
-         <div class="carousel-inner">
-            <div *ngFor="let carImage of carImages let i = index" [ngClass]="getSliderClassName(i)">
-               <img src="{{imageBaseUrl}}/{{carImage?.imagePath}}" class="d-block w-100" width="800" height="400" alt="...">
-            </div>
-         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-         </button>
-         <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-         </button>
-      </div>   
-   </div>
-</div>
-   <div class="col-lg-12 text-center">
-      <h1>{{ carDetail?.brandName }}</h1>
-      <hr style="width: 25%; opacity: 1; height: 2px">
-      <ul class="list-unstyled">
-         <li>
-            <h5><b>Model Name: </b>{{ carDetail?.description }} {{ carDetail?.brandName }}</h5>
-         </li>
-         <li>
-            <h5><b>Color Name: </b>{{ carDetail?.colorName }}</h5>
-         </li>
-         <li>
-            <h5><b>Model Year: </b>{{ carDetail?.modelYear }}</h5>
-         </li>
-         <li>
-            <h5><b>Günlük Ücret: </b>{{carDetail?.dailyPrice |currency:"₺" }}</h5>
-         </li>
-         
-      </ul>
-   </div>
-   <div class="row">
-      <div class="col-md-12 text-center">
-         <app-car-update></app-car-update>
+<div class="container">
+  
+   
+   <ngb-carousel >
+     <ng-template ngbSlide>
+       <div *ngFor="let carImage of carImages let i = index" class="picsum-img-wrapper">
+         <img src="{{imageBaseUrl}}/{{carImage?.imagePath}}" class="d-block w-100" alt="Random first slide" width="800" height="400">
+       </div>
+       <div class="carousel-caption" style="color: black;">
+         <div class="d-grid gap-2 mb-2" *ngIf="carDetail?.status == true">
+            <app-rental [car]="carDetail"></app-rental>
+         </div>
+         <div class="d-grid gap-2 mb-2" *ngIf="carDetail?.status == false">
+            <div class="alert alert-danger">Araç şuan kiralanamaz</div>
+         </div>
+       </div>
+     </ng-template>
+   </ngb-carousel>
+      <div style="color: skyblue;font-family: inherit;font-style: italic;" class="col-lg-12 text-center">
+         <h1>{{ carDetail?.brandName }}</h1>
+         <ul class="list-unstyled">
+            <li>
+               <h5><b>Model Name: </b>{{ carDetail?.description }} {{ carDetail?.brandName }}</h5>
+            </li>
+            <li>
+               <h5><b>Color Name: </b>{{ carDetail?.colorName }}</h5>
+            </li>
+            <li>
+               <h5><b>Model Year: </b>{{ carDetail?.modelYear }}</h5>
+            </li>
+            <li>
+               <h5><b>Günlük Ücret: </b>{{carDetail?.dailyPrice |currency:"₺" }}</h5>
+            </li>
+            <li>
+               <h5><b>Kiralama İçin Gerekli Findeks Puanı: </b>{{carDetail?.minFindeksScore }}</h5>
+            </li>
+         </ul>
       </div>
-   </div>
-   
-   
-               
-          
-				
-<div class="d-grid gap-2 mb-2" *ngIf="carDetail?.status == true">
-   <app-rental [car]="carDetail"></app-rental>
-</div>
-<div class="d-grid gap-2 mb-2" *ngIf="carDetail?.status == false">
-   <div class="alert alert-danger">Araç şuan kiralanamaz</div>
 </div>

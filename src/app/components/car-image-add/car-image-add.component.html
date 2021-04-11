@@ -1,0 +1,51 @@
+<br>
+
+<div class="container">
+  <div class="row">
+    <div *ngFor="let image of carImages let i = index" class="col-md-12">
+      <div class="card text-center" style="width: 30rem">
+        <img
+        src="{{imageBaseUrl}}/{{image.imagePath}}"
+          style="object-fit: contain"
+          class="d-block w-100" alt="Random first slide"
+          alt="Random first slide"
+        />
+        <div class="card-body">
+          <button (click)="deleteImage(image)" class="btn btn-danger">
+            Sil
+          </button>
+        </div>
+      </div>
+    </div>
+    </div>
+    <br>
+    <div class="row">
+    <div *ngIf="carImages.length !== 5" class="col-md-12">
+      <div class="card text-center" style="width: 30rem">
+       
+        <h5>Araç Resmi Seçiniz</h5>
+        <div class="card-body">
+          <form [formGroup]="addImageForm">
+            <div class="form-group">
+              <input
+                formControlName="file"
+                (change)="onFileChange($event)"
+                class="form-control"
+                type="file"
+                id="formFile"
+              />
+            </div>
+          </form>
+        </div>
+        <div class="card-footer">
+           
+          <button (click)="addImage(currentCarId)" class="btn btn-success">
+            Ekle
+          </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+

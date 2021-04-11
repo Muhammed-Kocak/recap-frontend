@@ -1,0 +1,48 @@
+<body style="background-image: url(https://www.hdcarwallpapers.com/walls/2020_tesla_roadster_4k_2-HD.jpg);padding: 140px;background-size: 100%;" class="text-center">
+    <main class="form-signin">
+        <form [formGroup]="loginForm">
+            <div class="mb-3">
+              <label for="email-input"  class="form-label"
+                > <b style="background-color: white;">E-posta adresinizi giriniz</b> </label
+              >
+              <div class="input-group has-validation">
+                <input
+                  formControlName="email"
+                  type="email"
+                  class="form-control"
+                  [ngClass]="{
+                    'is-invalid':
+                      loginForm.controls['email'].errors &&
+                      (loginForm.controls['email'].touched ||
+                        loginForm.controls['email'].dirty)
+                  }"
+                  id="email-input"
+                  placeholder="name@example.com"
+                />
+                <div class="invalid-feedback" style="background-color: white;">Lütfen E-postanızı girin.</div>
+              </div>
+            </div>
+    
+            <div class="mb-3">
+              <app-password-input
+                formControlName="password"
+                [errors]="loginForm.controls['password'].errors"
+                [touched]="loginForm.controls['password'].touched"
+                [dirty]="loginForm.controls['password'].dirty"
+              ></app-password-input>
+            </div>
+    
+            <button
+              (click)="login()"
+              class="btn btn-primary btn-lg rounded-1 shadow-xl w-100"
+            >
+              Giriş
+            </button>
+          </form>
+          <br>
+        <label for="floatingPassword" style="background-color: white;"><b>Henüz hesabın yok mu?</b></label>
+        <br>
+        <br>
+        <button class="w-100 btn btn-lg btn-primary" routerLink="/register" >Kayıt ol</button>
+    </main>
+</body>

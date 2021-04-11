@@ -74,19 +74,19 @@ export class CarAddComponent implements OnInit {
       let carModel = Object.assign({}, this.carAddForm.value);
       this.carService.carAdd(carModel).subscribe(
         (response) => {
-          this.toastrService.success('Ekleme Başarılı', response.messages);
+          this.toastrService.success('Ekleme Başarılı', response.message);
           setTimeout(() => { this.toastrService.info('Arabalar Sayfasına Yönlendiriliyorsunuz..');  }, 1000);
           setTimeout(() => { this.rooter.navigate(["/cars"])  }, 3500);
         },
         (responseError) => {
-          if (responseError.error.Errors.length > 0) {
-            for (let i = 0; i < responseError.error.Errors.length; i++) {
+          console.log(responseError)
               this.toastrService.error(
-                responseError.error.Errors[i].ErrorMessage,
+                responseError.error.Message,
                 'İşlem Başarısız..!!'
               );
-            }
-          }
+              setTimeout(() => { this.toastrService.info('Önce giriş yapmalısınız!');  }, 1000);
+              setTimeout(() => { this.toastrService.info('Giriş sayfasına yönlendiriliyorsunuz..');  }, 1200);
+              setTimeout(() => { this.rooter.navigate(["/login"])  }, 3500);
         }
       );
     } else {

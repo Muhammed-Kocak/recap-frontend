@@ -24,6 +24,10 @@ export class ColorService {
     return this.httpClient.post<ResponseModel>(
       this.apiUrl + '/update',color);
   }
+  delete(color: Color): Observable<ResponseModel> {
+    return this.httpClient.post<ResponseModel>(
+      this.apiUrl + '/delete',color);
+  }
   getColorById(colorId: number): Observable<ListResponseModel<Color>> {
     let newPath = this.apiUrl + '/getbyid?id=' + colorId;
     return this.httpClient.get<ListResponseModel<Color>>(newPath);

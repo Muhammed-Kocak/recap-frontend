@@ -4,7 +4,7 @@ import {FormGroup,FormBuilder,FormControl,
 Validators,
 } from '@angular/forms';
 import { ColorService } from 'src/app/services/colorService/color.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -13,6 +13,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./color-update.component.css']
 })
 export class ColorUpdateComponent implements OnInit {
+
   colors: Color[] = [];
   colorName: Color;
   colorId: Color;
@@ -22,7 +23,8 @@ export class ColorUpdateComponent implements OnInit {
     private colorService: ColorService,
     private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
+    private router:Router
   ) {}
 
   ngOnInit(): void {
@@ -60,7 +62,7 @@ export class ColorUpdateComponent implements OnInit {
     if (this.colorUpdateForm.valid) {
       let colorModel = Object.assign({}, this.colorUpdateForm.value);
       this.colorService.update(colorModel).subscribe((response) => {
-        this.toastrService.success(response.messages, 'Başarılı');
+        this.toastrService.success(response.message, 'Başarılı');
         setTimeout(() => {
           window.location.reload();
         }, 3000);
@@ -74,4 +76,15 @@ export class ColorUpdateComponent implements OnInit {
       });
     }
   }
-}
+
+  delete() {
+    let colorModel = Object.assign({}, this.colorUpdateForm.value);
+      this.colorService.delete(colorModel).subscribe((response) => {
+        this.toastrService.success(response.message);
+        this.toastrService.success('Renkler Sayfasına Aktarılıyorsunuz!');
+        setTimeout(() => {
+          this.router.navigate(["admin-dashboard/colors/getlist"])
+        }, 2000);
+      });
+    }
+  }

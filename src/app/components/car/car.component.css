@@ -1,0 +1,107 @@
+.bg-gradient {
+    background: #C9D6FF;
+    background: -webkit-linear-gradient(to right, #E2E2E2, #C9D6FF); 
+    background: linear-gradient(to right, #E2E2E2, #C9D6FF);
+    } 
+    ul li {
+      margin-bottom:1.4rem;
+    }
+    .pricing-divider {
+    border-radius: 20px;
+    background: #C64545;
+    padding: 1em 0 4em;
+    position: relative;
+    }
+    .blue .pricing-divider{
+    background: #2D5772; 
+    }
+    .green .pricing-divider {
+    background: #1AA85C; 
+    }
+    .red b {
+      color:#C64545
+    }
+    .blue b {
+      color:#2D5772
+    }
+    .green b {
+      color:#1AA85C
+    }
+    .pricing-divider-img {
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 80px;
+    }
+    .deco-layer {
+        -webkit-transition: -webkit-transform 0.5s;
+        transition: transform 0.5s;
+    }
+    .btn-custom  {
+      background:#C64545; color:#fff; border-radius:20px
+    }
+    
+    .img-float {
+      width:50px; position:absolute;top:-3.5rem;right:1rem
+    }
+    
+    .princing-item {
+      transition: all 150ms ease-out;
+    }
+    .princing-item:hover {
+      transform: scale(1.05);
+    }
+    .princing-item:hover .deco-layer--1 {
+      -webkit-transform: translate3d(15px, 0, 0);
+      transform: translate3d(15px, 0, 0);
+    }
+    .princing-item:hover .deco-layer--2 {
+      -webkit-transform: translate3d(-15px, 0, 0);
+      transform: translate3d(-15px, 0, 0);
+    }
+    .t-car-filter {
+        color: #fff;
+        border-radius: 3px
+    }
+    .about {
+        margin-top: 12px
+    }
+    
+    .off {
+        position: absolute;
+        left: 65%;
+        top: 6%;
+        width: 80px;
+        text-align: center;
+        height: 30px;
+        line-height: 8px;
+        border-radius: 5px;
+        font-size: 13px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff
+    }
+    .about span {
+        color: #5629c0;
+        font-size: 16px
+    }
+    .type {
+        background-color: #fff
+    }
+
+    body {
+        background-color: #eee
+    }
+    .row>*{
+      padding-top: calc(var(--bs-gutter-x)/ 1)
+    }
+    #card-body-style{
+      position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    }
+    

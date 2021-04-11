@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-lg-12">
+        <table class="table  table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Markalar</th>
+                    <th scope="col">Brand Id</th>
+                    <th scope="col">Brand Name</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let brand of brands">
+                <tr>
+                    <th scope="row"></th>
+                    <td>{{ brand.brandId }}</td>
+                    <td>{{ brand.brandName | uppercase }}</td>&nbsp;&nbsp;
+                    <button routerLink="/admin-dashboard/brands/{{ brand.brandId }}" type="button" class="btn btn-warning">Düzenle Veya Sil</button>
+                </tr>
+                <br>
+            </tbody>
+        </table>
+    </div>
+</div>

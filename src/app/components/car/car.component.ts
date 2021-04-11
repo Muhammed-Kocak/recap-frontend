@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CarDto } from 'src/app/models/carDto';
 import { CarService } from 'src/app/services/carService/car.service';
+import { PageControlService} from 'src/app/services/pageControlService/page-control.service';
 
 @Component({
   selector: 'app-car',
@@ -11,18 +12,18 @@ import { CarService } from 'src/app/services/carService/car.service';
 })
 export class CarComponent implements OnInit {
 
+   isCollapsed = true;
+
    carDetail: CarDto;
    carDetails: CarDto[] = [];
 
-   currentBrandId: number = 0;
-   currentColorId: number = 0;
-   currentCarId: number = 0;
    filterBrand="";
    filterColor="";
    filterCar="";
 
 
-   constructor(private carService: CarService, private activatedRoute: ActivatedRoute) {
+   constructor(private carService: CarService, private activatedRoute: ActivatedRoute,private pageControlService:PageControlService) {
+      
    }
 
    ngOnInit(): void {
@@ -35,6 +36,15 @@ export class CarComponent implements OnInit {
          }
          return this.getCars();
       });
+      console.log()
+   }
+
+   whichPageControl(){
+      if (this.pageControlService.whichPageControl("/cars").valueOf()) {
+         return true;
+      }else{
+         return false;
+      }
    }
 
    getCars() {
@@ -54,26 +64,5 @@ export class CarComponent implements OnInit {
          this.carDetails = response.data;
       });
    }
-   setCurrentCar(carId: number) {
-      this.currentCarId = carId;
-   }
-   getCurrentCarClass(carId: number): string {
-      if (this.currentCarId == carId) {
-         return 'list-group-item list-group-item-action active';
-      }
-      return 'list-group-item list-group-item-action';
-   }
-   resetCurrentBrandId(){
-      this.currentBrandId= 0;
-      this.currentColorId= 0;
-      this.currentCarId = 0;
-   }
-   removeCurrentColor(){
-      this.currentBrandId= 0;
-      this.currentColorId= 0;
-      this.currentCarId = 0;
-      this.filterBrand="";
-      this.filterColor="";
-      this.filterCar="";
-    }
+   
 }
