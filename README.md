@@ -10,7 +10,7 @@
 <a href="https://www.linkedin.com/in/muhammed-koçak-387960208/" rel="nofollow"><img src="https://camo.githubusercontent.com/a80d00f23720d0bc9f55481cfcd77ab79e141606829cf16ec43f8cacc7741e46/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4c696e6b6564496e2d3030373742353f7374796c653d666f722d7468652d6261646765266c6f676f3d6c696e6b6564696e266c6f676f436f6c6f723d7768697465" alt="LinkedIn" data-canonical-src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&amp;logo=linkedin&amp;logoColor=white" style="max-width:100%;">
 </a></p>
 
-<p align="center">
+<p align="start">
     Frontend of <a href="https://github.com/Muhammed-Kocak/ReCapProject-RentACar">ReCapProject</a> with Angular.
     <br>
     <br>
@@ -26,18 +26,22 @@
 <a href="https://sass-lang.com/" rel="nofollow"><img src="https://camo.githubusercontent.com/7bf4100eddaeda0400c9a36608b61ccc2a2de3655b94cf5351b2021a5b887830/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f536373732d4343363639393f7374796c653d666f722d7468652d6261646765266c6f676f3d73617373266c6f676f436f6c6f723d7768697465" alt="Scss" data-canonical-src="https://img.shields.io/badge/Scss-CC6699?style=for-the-badge&amp;logo=sass&amp;logoColor=white" style="max-width:100%;"></a>
 <a href="https://getbootstrap.com/docs/" rel="nofollow"><img src="https://camo.githubusercontent.com/b13ed67c809178963ce9d538175b02649800772be1ce0cb02da5879e5614e236/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f426f6f7473747261702d3536334437433f7374796c653d666f722d7468652d6261646765266c6f676f3d626f6f747374726170266c6f676f436f6c6f723d7768697465" alt="Bootstrap" data-canonical-src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&amp;logo=bootstrap&amp;logoColor=white" style="max-width:100%;"></a></p>
 <br>
-##'Bootstrap', 'Md Bootstrap' and 'Nd Bootstrap' were used for the frontline.
+## 'Bootstrap', 'Md Bootstrap' and 'Nd Bootstrap' were used for the frontline.
 
 
-###Abilities;
+### Abilities;
 
 > There are 'CRUD' operations for all content.
+
 > Filtering option specific to vehicle listing.
+
 > Authorization systems and special 'Admin Dashboard'.
+
 > Car detailed (pictures, information ..) views and the rental process.
 
 
-##How Do I Use It?
+
+## How Do I Use It?
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.4.
 
