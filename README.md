@@ -21,10 +21,9 @@
 <a href="https://angular.io/" rel="nofollow"><img src="https://camo.githubusercontent.com/29026b68c52288230bf32bc2268e47e5c3b81dba23106fb062fcc0541f8e9529/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f416e67756c61722d4444303033313f7374796c653d666f722d7468652d6261646765266c6f676f3d616e67756c6172266c6f676f436f6c6f723d7768697465" alt="Angular" data-canonical-src="https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&amp;logo=angular&amp;logoColor=white" style="max-width:100%;"></a>
 <a href="https://ngrx.io/" rel="nofollow"><img src="https://camo.githubusercontent.com/7c3ad598cdcc1c1295ef868e0e7fb62b0b387f96ec5c17b825d39a0d16be87d6/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4e6752782d4444303033313f7374796c653d666f722d7468652d6261646765266c6f676f3d4e504d266c6f676f436f6c6f723d7768697465" alt="NgRx" data-canonical-src="https://img.shields.io/badge/NgRx-DD0031?style=for-the-badge&amp;logo=NPM&amp;logoColor=white" style="max-width:100%;"></a></p>
 
-<p>
+
 ## 'Bootstrap', 'Md Bootstrap' and 'Nd Bootstrap' were used for the frontline.  
-  
-<a href="https://getbootstrap.com/docs/" rel="nofollow"><img src="https://camo.githubusercontent.com/b13ed67c809178963ce9d538175b02649800772be1ce0cb02da5879e5614e236/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f426f6f7473747261702d3536334437433f7374796c653d666f722d7468652d6261646765266c6f676f3d626f6f747374726170266c6f676f436f6c6f723d7768697465" alt="Bootstrap" data-canonical-src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&amp;logo=bootstrap&amp;logoColor=white" style="max-width:100%;"></a></p>
+<p><a href="https://getbootstrap.com/docs/" rel="nofollow"><img src="https://camo.githubusercontent.com/b13ed67c809178963ce9d538175b02649800772be1ce0cb02da5879e5614e236/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f426f6f7473747261702d3536334437433f7374796c653d666f722d7468652d6261646765266c6f676f3d626f6f747374726170266c6f676f436f6c6f723d7768697465" alt="Bootstrap" data-canonical-src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&amp;logo=bootstrap&amp;logoColor=white" style="max-width:100%;"></a></p>
 
 
 
