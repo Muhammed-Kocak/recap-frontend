@@ -1,4 +1,3 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {FormsModule,ReactiveFormsModule} from "@angular/forms";
@@ -50,6 +49,7 @@ import { CarImageAddComponent } from './components/car-image-add/car-image-add.c
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { HttpErrorInterceptor } from './interceptors/http-error.interceptor';
 import { AppReducers } from './store/app.reducer';
+import { NgModule } from '@angular/core';
 
 
 
